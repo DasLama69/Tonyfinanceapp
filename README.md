@@ -34,3 +34,19 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 npm run build
 ```
 
+## Deploy to GitHub Pages
+
+The app is automatically deployed to **[https://DasLama69.github.io/Tonyfinanceapp/](https://DasLama69.github.io/Tonyfinanceapp/)** on every push to `main` via GitHub Actions.
+
+### How it works
+
+1. The workflow in `.github/workflows/deploy.yml` runs `npm ci && npm run build`.
+2. The built `dist/` folder is published using the official `actions/deploy-pages` action.
+3. `vite.config.js` sets `base: '/Tonyfinanceapp/'` so all asset URLs are correct on GitHub Pages.
+
+### First-time setup (repository settings)
+
+1. Go to **Settings → Pages** in this repository.
+2. Under **Build and deployment → Source**, select **GitHub Actions**.
+3. Push any commit to `main` (or trigger the workflow manually from the **Actions** tab) to publish the site.
+
